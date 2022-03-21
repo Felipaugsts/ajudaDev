@@ -20,13 +20,29 @@ body {
     .small { 
     font-size: 14px !important;
     }
+    .xsmall { 
+        font-size: 13px !important;
+    }
 
     /* GLOBAL FLEX */
 
     .flex { 
         display: flex !important;
     }
+    .column { 
+        flex-direction: column;
+    }
+    .wrap { 
+        flex-wrap: wrap;
+    }
     .centered { 
         justify-content: center !important;
         align-items: center !important;
+    }
+
+    .green {
+        background: green !important;
+    }
+    .blue {
+        background: blue!important;
     }
