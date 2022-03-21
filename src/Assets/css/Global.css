@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'inter', sans-serif !important;
+  }
+  /* GLOBAL FONT SIZES */
+    .xlarge { 
+    font-size: 32px !important;
+    }
+
+    .large { 
+      font-size: 26px !important;
+    }
+
+    .medium { 
+    font-size: 18px !important;
+    }
+
+    .small { 
+    font-size: 14px !important;
+    }
+
+    /* GLOBAL FLEX */
+
+    .flex { 
+        display: flex !important;
+    }
+    .centered { 
+        justify-content: center !important;
+        align-items: center !important;
+    }
