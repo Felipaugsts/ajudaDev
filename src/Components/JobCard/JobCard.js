@@ -1,28 +1,38 @@
 import './card.css'
-import google from '../../Assets/images/google.png'
+import logo from '../../Assets/images/java.png'
 const jobcard = () => { 
 
     return ( 
-        <div className='card flex'>
-            <div className='card-logo'>
-                <img className='logo' src={google} />
+        <div className='card flex shadow'>
+            <div className='image-wrapper'>
+                <div className='logo-wrapper shadow'>
+                    <img className='image' src={logo}></img>
+                    
+                </div>
             </div>
-            <div className='flex column info-wrapper'>
-                <div className='xlarge title '>job Title web developer full stack / Senior</div>
-                <div className='small subtitle'>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod mauris vitae tristique porta. Suspen
-                disse sed ligula metus. In et commodo erat, vitae commodo ligula. Donec sit amet elit est. 
-                Pellentesque vitae dolor eu turpis venenatis feugiat. Duis vel velit purus.</div>
-            
-                <div className='flex requiriments-container'>
-                <div className='xsmall requiriments-text'>React  </div>
-                <div className='xsmall requiriments-text'>HTML   </div>
-                <div className='xsmall requiriments-text'>CSS   </div>
-                <div className='xsmall requiriments-text'>TYPESCRIPT   </div>
-                <div className='xsmall requiriments-text'>REDUX   </div>
-                <div className='xsmall requiriments-text'>VUETIFY   </div>
-                <div className='xsmall requiriments-text'>CSS   </div>
+            <div className='description-wrapper'>
+                <div className='link medium description-address'>Lisboa, Portual</div>
+                <div className='xlarge heavy description-title'>Talent Acquisition Trainee</div>
+
+                <div className='description-informations flex spaced'>
+
+            <div className='flex'>
+            <div className='characteristic small'>
+                DEVELOPMENT
+                        </div>
+                        <div className='characteristic small'>
+                REMOTE
+                        </div>
             </div>
+
+                <div className='medium'>
+                    15 de marco de 2022
+                </div>
+        
+                </div>
+
             </div>
+
         </div>
     )
 }

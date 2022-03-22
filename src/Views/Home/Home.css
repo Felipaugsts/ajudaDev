@@ -3,7 +3,8 @@
 }
 
 .container {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -12,6 +13,13 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.cardList { 
-  width: 100% !important;
+
+.card-list { 
+  
+  width: 800px;
+}
+.card-filters { 
+  background: green;
+  width: 400px;
+  height: 100% !important;
 }
