@@ -3,9 +3,9 @@ import logo from '../../Assets/images/java.png'
 const jobcard = () => { 
 
     return ( 
-        <div className='card flex shadow'>
+        <div className='card flex wrapper'>
             <div className='image-wrapper'>
-                <div className='logo-wrapper shadow'>
+                <div className='logo-wrapper wrapper'>
                     <img className='image' src={logo}></img>
                     
                 </div>

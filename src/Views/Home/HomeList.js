@@ -1,4 +1,5 @@
 import Card from '../../Components/JobCard/JobCard'
+import TextField from '../../Components/TextField/TextField'
 import './Home.css'
 const HomeList = () => {
   return (
@@ -17,6 +18,9 @@ const HomeList = () => {
        </div>
        <div className='card-filters'>
          Filters
+         <div className='wrapper  search-field-wrapper'>
+           <TextField />
+         </div>
        </div>
     </div>
 

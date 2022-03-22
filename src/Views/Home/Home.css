@@ -19,8 +19,7 @@
   width: 800px;
 }
 .card-filters { 
-  background: green;
-  width: 400px;
+  width: 350px;
   height: 100% !important;
 }
 .text { 
@@ -33,4 +32,12 @@
 
 .hashtag { 
   color: rgb(237, 112, 2) !important;
+}
+
+.search-field-wrapper { 
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }

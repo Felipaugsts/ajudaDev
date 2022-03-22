@@ -1,0 +1,18 @@
+input { 
+    width: 220px;
+    border: none;
+    
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+.field-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.field-icon { 
+    width: 40px;
+    height: 40px;
+    
+}
