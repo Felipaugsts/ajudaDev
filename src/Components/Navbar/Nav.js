@@ -4,7 +4,7 @@ import './Nav.css'
 const Nav = () => { 
 
     return ( 
-        <div className='navbar flex align-center justify-center'>
+        <div className='navbar shadow flex align-center justify-center'>
             <p className='xlarge'>DevJobs</p>
         </div>
     )

@@ -12,7 +12,7 @@ const jobcard = () => {
             </div>
             <div className='description-wrapper'>
                 <div className='link medium description-address'>Lisboa, Portual</div>
-                <div className='xlarge heavy description-title'>Talent Acquisition Trainee</div>
+                <div className='large heavy description-title'>Talent Acquisition Trainee</div>
 
                 <div className='description-informations flex spaced'>
 

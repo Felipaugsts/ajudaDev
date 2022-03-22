@@ -7,7 +7,9 @@ import Nav from './Components/Navbar/Nav'
 ReactDOM.render(
   <React.StrictMode>
     <Nav />
-    <Home />
+    <div className='route'>
+      <Home />
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
