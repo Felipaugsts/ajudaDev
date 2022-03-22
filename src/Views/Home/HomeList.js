@@ -1,29 +1,17 @@
 import Card from '../../Components/JobCard/JobCard'
-import TextField from '../../Components/TextField/TextField'
 import './Home.css'
-const HomeList = () => {
+import React from 'react'
+
+const HomeList = ({jobs}) => {
+
   return (
-    <div className='card-wrapper flex wrap justify-center'>
-      <div className='card-list'>
-       <Card />
-       <Card />
-       <Card />
-       <Card />
-       <Card />
-       <Card />
-
-       <Card />
-       <Card />
-       
-       </div>
-       <div className='card-filters'>
-         Filters
-         <div className='wrapper  search-field-wrapper'>
-           <TextField />
-         </div>
-       </div>
-    </div>
-
+      <div>
+        {
+          jobs.map((job, i) => { 
+            return <Card key={i} job={job} />
+          })
+        }
+      </div>
   );
 }
 

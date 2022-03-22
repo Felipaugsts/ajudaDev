@@ -3,6 +3,7 @@ import HomeList from './HomeList'
 import './Home.css'
 import api from '../../Model/API.js'
 import loader from '../../Assets/images/loader.gif'
+import TextField from '../../Components/TextField/TextField'
 
 class HomeController extends Component {
     constructor() { 
@@ -28,10 +29,10 @@ class HomeController extends Component {
     }
 
     render() { 
-       if (this.state.jobs.length == 0) {
+       if (this.state.jobs.length === 0) {
            console.log("loading")
            return ( 
-               <img className='loader-image' src={loader} /> 
+               <img className='loader-image' src={loader} alt="loading" /> 
          )
        } else {
         return (
@@ -39,7 +40,18 @@ class HomeController extends Component {
                 <div className='text xlarge heavy '>Encontre seu primeiro emprego <br />
                     <span className='hashtag heavier'>#AjudaDev</span>
                 </div>
-            <HomeList />
+                <div className='card-wrapper flex wrap justify-center'>
+                        <div className='card-list'>
+                            <HomeList jobs={this.state.jobs} />
+                        </div>
+                    
+                        <div className='card-filters'>
+                            Filters
+                            <div className='wrapper  search-field-wrapper'>
+                            <TextField />
+                            </div>
+                    </div>
+                 </div>
             </div>
             )
        }
