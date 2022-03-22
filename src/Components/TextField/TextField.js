@@ -2,10 +2,11 @@ import * as React from 'react';
 import './field.css'
 import magnify from '../../Assets/images/magnify.gif'
 
-export default function TextField() {
+export default function TextField({searchChange}) {
   return (
 <div className='field-wrapper'>
-    <input type="text" placeholder='Pesquisar...' />
+    <input type="text" placeholder='Pesquisar...' 
+    onChange={searchChange}/>
     <img className='field-icon' src={magnify} />
 
 </div>

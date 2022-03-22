@@ -10,26 +10,42 @@ class HomeController extends Component {
         super()
 
         this.state = { 
-            jobs: []
+            jobs: [],
+            searchfield: "",
+            filtered: []
         }
     }
+    onSearchChange = (event) => { 
+        this.setState({ 
+            searchfield: event.target.value
+        })
+        }
+        filterJobs() { 
+            const filtered = []
+            
+            const filteredTitles = this.state.jobs.filter(jobs => {
+                if (jobs.title.toLowerCase().includes(this.state.searchfield.toLowerCase())) {
+                    filtered.push(jobs)
+                }
+            })
+            return filtered
+        }
     fetchJobs = () => { 
         api.FetchJobs()
         .then(job => this.setState({ 
             jobs: job
         }))
-    
     }
-    componentDidUpdate() { 
-        console.log(this.state.jobs)
-    }
+
 
     componentDidMount() { 
        this.fetchJobs()
     }
+   
 
     render() { 
-       if (this.state.jobs.length === 0) {
+        const filtered = this.filterJobs()
+       if (filtered.length === 0) {
            console.log("loading")
            return ( 
                <img className='loader-image' src={loader} alt="loading" /> 
@@ -42,13 +58,15 @@ class HomeController extends Component {
                 </div>
                 <div className='card-wrapper flex wrap justify-center'>
                         <div className='card-list'>
-                            <HomeList jobs={this.state.jobs} />
+                            <HomeList jobs={filtered} />
                         </div>
                     
                         <div className='card-filters'>
                             Filters
                             <div className='wrapper  search-field-wrapper'>
-                            <TextField />
+                            <TextField searchChange={ 
+                                this.onSearchChange
+                            }  />
                             </div>
                     </div>
                  </div>
