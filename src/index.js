@@ -4,14 +4,15 @@ import './Assets/css/Global.css';
 import './Model/FirebaseSetup'
 import Home from './Views/Home/HomeController';
 import Nav from './Components/Navbar/Nav'
-
+import { BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 ReactDOM.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <Nav />
-    <div className='route'>
-      <Home />
-    </div>
-  </React.StrictMode>,
+    <Routes className='route'>
+      <Route path='/' element={<Home />} />
+    </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
