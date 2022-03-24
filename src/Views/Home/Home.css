@@ -4,11 +4,9 @@
 
 .container {
   /* background-color: #282c34; */
-  
+  margin-top: 140px;
   display: flex;
   flex-direction: column;
-
-
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -33,7 +31,8 @@
   color: rgb(237, 112, 2) !important;
 }
 
-.search-field-wrapper { 
+.search-field-wrapper {
+  margin-top: 10px; 
   height: 80px;
   display: flex;
   justify-content: center;
@@ -48,4 +47,17 @@
   margin-right: auto;
   margin-top: 50px;
 
+}
+.error-image { 
+  height: 400px;
+  margin-top: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: 0px
+
+}
+
+
+.categories-wrapper{ 
+  height: 500px;
 }

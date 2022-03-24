@@ -1,5 +1,5 @@
 import './card.css'
-import logo from '../../Assets/images/java.png'
+import logo from '../../Assets/images/java.gif'
 const jobcard = ({job}) => { 
 
     return ( 
@@ -27,7 +27,7 @@ const jobcard = ({job}) => {
                         </div>
             </div>
 
-                <div className='medium'>
+                <div className='medium date'>
                     15 de marco de 2022
                 </div>
         

@@ -1,0 +1,60 @@
+@media only screen and (max-width: 1190px) {
+    .nav-items {
+      width: 90% !important;
+      
+    }
+    .card { 
+        width: 93% !important;
+    }
+    .card-list { 
+        width: 70% !important;
+        
+    }
+    .card-filters { 
+        width: 28% !important;
+        
+    }
+    .input-field { 
+        width: 80%;
+    }
+
+  }
+
+  @media only screen and (max-width: 900px) {
+
+    .date { 
+        display: none !important;
+    }
+    .field-icon { 
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .card { 
+        width: 90% !important;
+    }
+    .input-field { 
+        width: 60% !important;
+        
+        
+    }
+  }
+
+  @media only screen and (max-width: 650px) {
+    .card-list { 
+        width: 100% !important;
+    }
+    .display-wrapper {
+        flex-direction: column-reverse;
+    }
+    .card-filters { 
+        width: 90% !important;
+    }
+    .display-wrapper {
+        align-items: center;
+    }
+    .input-field {
+        width: 200px !important;
+
+    }
+  
+  }
