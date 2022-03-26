@@ -1,5 +1,5 @@
 .input-field { 
-    width: 100%;
+    width: 50%;
     height: 50px;
     border: none;
     
@@ -11,6 +11,7 @@ textarea:focus, input:focus{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 .field-icon { 
     width: 45px;

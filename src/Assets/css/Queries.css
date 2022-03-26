@@ -29,13 +29,27 @@
         width: 40px !important;
         height: 40px !important;
     }
-    .card { 
+    .card-list { 
+        width: 100% !important;
+    }
+    .display-wrapper {
+        flex-direction: column-reverse;
+    }
+    .card-filters { 
         width: 90% !important;
     }
-    .input-field { 
-        width: 60% !important;
-        
-        
+    .display-wrapper {
+        align-items: center;
+    }
+    .input-field {
+        width: 200px !important;
+    }
+    .categories-wrapper { 
+        display: none !important;
+    }
+    .text {
+        font-size: 5vw !important;
+        text-align: center !important;
     }
   }
 
@@ -55,6 +69,9 @@
     .input-field {
         width: 200px !important;
 
+    }
+    .text {
+        font-size: 7vw !important;
     }
   
   }

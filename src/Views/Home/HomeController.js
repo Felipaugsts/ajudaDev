@@ -7,6 +7,7 @@ import error from '../../Assets/images/error.gif'
 import TextField from '../../Components/TextField/TextField'
 import Filters from './Filters'
 
+
 class HomeController extends Component {
     constructor() { 
         super()
@@ -54,7 +55,7 @@ class HomeController extends Component {
          )
        } else {
         return (
-            <div className='container'>
+            <div className='containers'>
                 <div className='text xlarge heavy '>Encontre seu primeiro emprego <br />
                     <span className='hashtag heavier'>#AjudaDev</span>
                 </div>

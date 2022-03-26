@@ -3,7 +3,7 @@ import logo from '../../Assets/images/java.gif'
 const jobcard = ({job}) => { 
 
     return ( 
-        <div className='card flex wrapper'>{
+        <div className='card-wrapper flex wrapper'>{
             console.log("job", job)
         }
             <div className='image-wrapper'>

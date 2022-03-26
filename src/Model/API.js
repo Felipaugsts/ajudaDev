@@ -1,5 +1,6 @@
-import firebase from './FirebaseSetup'
-
+import firebase , { Auth } from './FirebaseSetup'
+import { useDispatch } from 'react-redux'
+import { setUserActive } from './userSlice'
  function FetchJobs() {
      
    return firebase.db.collection('Jobs')
@@ -14,8 +15,22 @@ import firebase from './FirebaseSetup'
         }
     })
   };
+
+  function isLogged() { 
+Auth.onAuthStateChanged(function(user)  { 
+  if (user) { 
+    const dispatch = useDispatch()
+    console.log("user", user)
+    dispatch(setUserActive({ 
+      userEmail: "test",
+      userName: "test"
+  }))
+  }
+})
+  }
   
 
   export default {
-    FetchJobs
+    FetchJobs,
+    isLogged
   };

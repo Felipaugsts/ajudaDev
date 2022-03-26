@@ -50,12 +50,15 @@ body {
     }
 
 
+
     .link {
         color: rgb(60, 136, 228)!important;
         font-weight: 400;
         text-decoration: none !important;
     }
-    
+    .light { 
+        font-weight: 300 !important;
+    }
     .heavy { 
         font-weight: 700 !important;
     }

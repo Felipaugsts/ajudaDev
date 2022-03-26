@@ -1,6 +1,7 @@
 import Card from '../../Components/JobCard/JobCard'
 import './Home.css'
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.css';
 
 const HomeList = ({jobs}) => {
 
