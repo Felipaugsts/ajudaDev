@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import rootReducer from '../Model/Store';
 import {createStore} from 'redux' 
 import {Provider} from 'react-redux';
+import NewItem from "./AddNewItem/NewItem";
 const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 class App extends Component { 
@@ -18,6 +19,7 @@ class App extends Component {
                 <Routes >
                     <Route path='/' element={<Home />} />
                     <Route path='/login' element={<Login />} />
+                    <Route path='/list' element={<NewItem />} />
                 </Routes>
                 </Provider>
           </BrowserRouter>

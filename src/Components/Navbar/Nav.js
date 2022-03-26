@@ -36,16 +36,18 @@ const handleSignOut = () => {
            <div className='nav-items'>
             <Link to={"/"} className='xlarge link'>DevJobs</Link>
                 {
-                    console.log(userUID),
                     userUID  ? ( 
                        <div>
-                            <img  className='icon' src={add}  alt="auth" />
+                           <Link to={"/list"}>
+                                <img  className='icon' src={add}  alt="auth" />
+                           </Link>
+                            
                         <img onClick={handleSignOut} className='icon' src={logout}  alt="auth" />
                         </div>
-                    ):( 
-                        <Link to={"/login"}>
-                    <img className='icon' src={auth}  alt="auth" />
-                </Link>
+                        ):( 
+                            <Link to={"/login"}>
+                                <img className='icon' src={auth}  alt="auth" />
+                            </Link>
                     )
                 }
             </div>
