@@ -60,5 +60,21 @@
 
 
 .categories-wrapper{ 
-  height: 500px;
+  height: 400px;
+}
+
+
+/* Categorias */
+
+.categorias-wrapper { 
+  color: black;
+}
+.categorias-text { 
+  padding-left: 30px;
+  padding-top: 35px;
+}
+
+.filter-city { 
+  margin-top: 65px;
+  height: 400px;
 }

@@ -35,7 +35,7 @@ const handleSignOut = () => {
     return ( 
         <div className='navigationbar shadow '>
            <div className='nav-items'>
-            <Link to={"/"} className='xlarge link'>DevJobs</Link>
+            <Link to={"/"} className='xlarge link orange heavy'>DevJobs</Link>
                 {
                     userUID  ? ( 
                        <div>

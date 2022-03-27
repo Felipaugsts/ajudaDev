@@ -5,7 +5,8 @@ import api from '../../Model/API.js'
 import loader from '../../Assets/images/loader.gif'
 import error from '../../Assets/images/error.gif'
 import TextField from '../../Components/TextField/TextField'
-import Filters from './Filters'
+import FilterCategories from './FilterCategories'
+import FilterCity from './FilterCity'
 
 
 class HomeController extends Component {
@@ -77,7 +78,8 @@ class HomeController extends Component {
                             </div>
 
                             <div className='wrapper categories-wrapper '>
-                            <Filters />
+                            <FilterCategories />
+                            <FilterCity />
                             </div>
                     </div>
                  </div>
