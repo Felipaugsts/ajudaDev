@@ -2,7 +2,7 @@ import './login.css'
 
 import {Auth, Provider} from '../../Model/FirebaseSetup'
 import {useDispatch, useSelector} from 'react-redux'
-import {setUserActive, setLogoutUser, selectUserName, setLoader, loading} from '../../Model/userSlice'
+import {setUserActive, selectUserName, setLoader, loading} from '../../Model/userSlice'
 import icon from '../../Assets/Icons/googleAuth.png'
 import loadingIcon from '../../Assets/Icons/lock.gif'
 import { useNavigate } from "react-router-dom";

@@ -8,9 +8,9 @@ const filterField = (fil) => {
             <div className='form-wrapper'>
                 <div className='form'>
                 <img className='icon' src={require(`../../Assets/Icons/${fil.filter.icon}.gif`)} />
-                <span className='text medium'>{fil.filter.name}</span>
+                <span className='text medium black'>{fil.filter.name}</span>
                 </div>
-                <input class="form-check-input shadow" type="checkbox" value="" id="flexCheckDefault" disabled />
+                <input class="form-check-input shadow black" type="checkbox" value="" id="flexCheckDefault" disabled />
          
             </div>
     )

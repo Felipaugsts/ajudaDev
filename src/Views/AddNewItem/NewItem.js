@@ -5,6 +5,7 @@ import './newItem.css'
 import { useSelector } from 'react-redux'
 import {  uid   } from '../../Model/userSlice'
 import API  from '../../Model/API'
+import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom'
 
 const NewItem = () => { 
@@ -16,6 +17,9 @@ const NewItem = () => {
     const [Tech, setTech] = useState("")
     const userUID = useSelector(uid)
     const { id } = useParams();
+    const [loader, setLoader] = useState(false)
+    const [success, setSuccess] = useState(false)
+    let navigate = useNavigate();
 
     const handleSubmit = () => { 
         if (
@@ -25,6 +29,8 @@ const NewItem = () => {
             Tech && 
             userUID
         ) { 
+           if (userUID) {
+            setLoader(true)
             let data = {
                 "uid": userUID,
                 "title": title,
@@ -36,16 +42,22 @@ const NewItem = () => {
             }
             API.postCollection(data, id).then(() => {
                 console.log("success")
+                setLoader(false)
+                setSuccess(true)
             }).catch((err) =>  { 
                 console.log(err)
+                setLoader(false)
             })
-
+          }
         } else {
             alert("fields cannot be empty!")
         }
     }
 
     useEffect(() => { 
+      if (!userUID) { 
+        navigate("/", { replace: true })
+      }
         if (id) {
             API.getJobId(id).then((data) => { 
                 console.log(data)
@@ -108,8 +120,15 @@ const NewItem = () => {
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
     <Form.Check value={remote} onChange={(e) => setRemote(!remote)} type="checkbox" label="Remote?" />
   </Form.Group>
-  <Button onClick={handleSubmit} variant="primary">
-    Submit
+  <Button onClick={handleSubmit} variant={`${loader ? '' : success ? 'success' : 'primary'}`}>
+    { 
+    !loader ? ( 
+        success ? 'success' : 'Submit'
+    ) : ( 
+        'loading ...'
+    )
+    }
+    
   </Button>
 </Form>
        </div>

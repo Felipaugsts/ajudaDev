@@ -21,7 +21,7 @@ import { Link } from 'react-router-dom'
             </div>
             <div className='description-wrapper'>
                     <div className='header'>
-                        <span className='link medium description-address capitalize'>{job.location.toLowerCase()}</span>
+                        <span className='link medium description-address black capitalize'>{job.location.toLowerCase()}</span>
                         {
                             userUid === job.uid ? ( 
                                 <Link to={`/list/${job.jobID}`}><img className='icon-edit' alt="edit" src={edit} /></Link>
@@ -37,13 +37,15 @@ import { Link } from 'react-router-dom'
             <div className='characteristic small'>
                 {job.Field}
                         </div>
-                        <div  className='characteristic small'>
+                        <div  className='characteristic black small'>
                         {job.remote ? "REMOTE" : "PRESENTIAL"}
                         </div>
             </div>
 
-                <div className='medium date'>
-                    15 de marco de 2022
+                <div className='medium date black'>
+                    {
+                        job.created.toDate().toDateString()
+                    }
                 </div>
         
                 </div>

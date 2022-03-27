@@ -5,8 +5,7 @@ import api from '../../Model/API.js'
 import loader from '../../Assets/images/loader.gif'
 import error from '../../Assets/images/error.gif'
 import TextField from '../../Components/TextField/TextField'
-import FilterCategories from './FilterCategories'
-import FilterCity from './FilterCity'
+import FilterInput from '../../Components/Filters/filter'
 
 
 class HomeController extends Component {
@@ -45,9 +44,20 @@ class HomeController extends Component {
     componentDidMount() { 
        this.fetchJobs()
     }
-   
-
+    
     render() { 
+        const categories = [ 
+            {name: "Development", icon: "code"},
+            {name: "Cloud", icon: "cloud"},
+            {name: "QA & Testing", icon: "qa"},
+            {name: "UX/UI Design", icon: "design"}
+        ]
+        const location = [ 
+            {name: "São Paulo, BR", icon: "sp"},
+            {name: "Curitiba, BR", icon: "curitiba"},
+            {name: "Outras, PT", icon: "world"},
+            {name: "Remoto, PT", icon: "remote"}
+        ]
         const filtered = this.filterJobs()
        if (this.state.jobs.length === 0) {
            console.log("loading")
@@ -77,10 +87,25 @@ class HomeController extends Component {
                             }  />
                             </div>
 
-                            <div className='wrapper categories-wrapper '>
-                            <FilterCategories />
-                            <FilterCity />
-                            </div>
+    <div className='wrapper categories-wrapper '>
+        <div className='categorias-wrapper'>
+            <p className='large heavy categorias-text'>Categorias</p>
+        
+            { 
+            categories.map((category, i) => {return <FilterInput key={i} filter={category} />})
+            }
+        </div>
+     </div>
+     <div className='wrapper categories-wrapper '>
+        <div className='categorias-wrapper'>
+            <p className='large heavy categorias-text'>Localização</p>
+        
+            { 
+            location.map((locations, i) => {return <FilterInput key={i} filter={locations} />})
+            }
+        </div>
+     </div>
+                         
                     </div>
                  </div>
             </div>
