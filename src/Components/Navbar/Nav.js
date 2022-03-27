@@ -15,6 +15,7 @@ const Nav = () => {
 useEffect(() => { 
     Auth.onAuthStateChanged(function(user)  { 
         if (user) { 
+            sessionStorage.setItem('uid', user.uid)
           dispatch(setUserActive({ 
             userEmail: user.email,
             userName: user.displayName,
@@ -39,7 +40,7 @@ const handleSignOut = () => {
                     userUID  ? ( 
                        <div>
                            <Link to={"/list"}>
-                                <img  className='icon' src={add}  alt="auth" />
+                                <img  className='add-icon' src={add}  alt="auth" />
                            </Link>
                             
                         <img onClick={handleSignOut} className='icon' src={logout}  alt="auth" />

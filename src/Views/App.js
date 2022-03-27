@@ -20,6 +20,7 @@ class App extends Component {
                     <Route path='/' element={<Home />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/list' element={<NewItem />} />
+                    <Route path='/list/:id' element={<NewItem />} />
                 </Routes>
                 </Provider>
           </BrowserRouter>

@@ -1,6 +1,6 @@
 .card-wrapper { 
     
-    height: 160px;
+    height: 170px;
     background: white;
     color: rgb(31, 30, 30);
     margin: 10px;
@@ -36,8 +36,7 @@
 }
 .description-wrapper { 
     width: 80%;
-    
-    padding-top: 15px;
+  
 }
 .description-title { 
     
@@ -58,4 +57,12 @@
     background: rgb(238, 238, 238);
     border-radius: 5px;
 
+}
+.header { 
+    display: flex;
+    justify-content: space-between;
+}
+.icon-edit {
+    height: 30px;
+    cursor: pointer;
 }

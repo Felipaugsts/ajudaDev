@@ -1,10 +1,11 @@
-import {  useState } from 'react'
+import {  useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
 import { Button } from 'react-bootstrap'
-import { db } from '../../Model/FirebaseSetup'
 import './newItem.css'
 import { useSelector } from 'react-redux'
 import {  uid   } from '../../Model/userSlice'
+import API  from '../../Model/API'
+import { useParams } from 'react-router-dom'
 
 const NewItem = () => { 
 
@@ -14,14 +15,9 @@ const NewItem = () => {
     const [remote, setRemote] = useState(false)
     const [Tech, setTech] = useState("")
     const userUID = useSelector(uid)
+    const { id } = useParams();
 
     const handleSubmit = () => { 
-        console.log("click")
-        console.log(title)
-        console.log(location)
-        console.log(field)
-        console.log(remote)
-        console.log(Tech)
         if (
             title &&
             location &&
@@ -29,9 +25,7 @@ const NewItem = () => {
             Tech && 
             userUID
         ) { 
-            console.log("started")
-            // let ref = db.collection("Jobs").doc()
-            db.collection("Jobs").doc().set({
+            let data = {
                 "uid": userUID,
                 "title": title,
                 "location": location,
@@ -39,8 +33,11 @@ const NewItem = () => {
                 "remote": remote,
                 "Tech": Tech,
                 "created": new Date()
-            }).then((res) => { 
-                console.log(res)
+            }
+            API.postCollection(data, id).then(() => {
+                console.log("success")
+            }).catch((err) =>  { 
+                console.log(err)
             })
 
         } else {
@@ -48,23 +45,39 @@ const NewItem = () => {
         }
     }
 
+    useEffect(() => { 
+        if (id) {
+            API.getJobId(id).then((data) => { 
+                console.log(data)
+                setTitle(data.title)
+                setLocation(data.location)
+                setField(data.field)
+                setRemote(data.remote)
+                setTech(data.Tech)
+                
+                console.log(title)
+            })
+        } 
+    }, [id])
+
     return ( 
        <div className="newItem">
+           
 
 <Form>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Title</Form.Label>
-    <Form.Control onChange={(e) => setTitle( e.target.value)} type="text" placeholder="Enter Title" />
+    <Form.Control value={title} onChange={(e) => setTitle( e.target.value)} type="text" placeholder="Enter Title" />
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Location</Form.Label>
-    <Form.Control onChange={(e) => setLocation( e.target.value)} type="text" placeholder="Enter Location" />
+    <Form.Control value={location} onChange={(e) => setLocation( e.target.value)} type="text" placeholder="Enter Location" />
   </Form.Group>
 
 <Form.Group className="mb-3">
 <Form.Label>Field</Form.Label>
-<Form.Select onChange={(e) => setField( e.target.value)}  size="sm">
+<Form.Select value={field} onChange={(e) => setField( e.target.value)}  size="sm">
     <option></option>
     <option>Developer</option>
     <option>Design</option>
@@ -74,7 +87,7 @@ const NewItem = () => {
 
 <Form.Group className="mb-3">
 <Form.Label>Technology</Form.Label>
-<Form.Select onChange={(e) => setTech(e.target.value)}  size="sm">
+<Form.Select value={Tech} onChange={(e) => setTech(e.target.value)}  size="sm">
     <option></option>
     <option>Java</option>
     <option>Python</option>
@@ -93,7 +106,7 @@ const NewItem = () => {
 
 
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check onChange={(e) => setRemote(!remote)} type="checkbox" label="Remote?" />
+    <Form.Check value={remote} onChange={(e) => setRemote(!remote)} type="checkbox" label="Remote?" />
   </Form.Group>
   <Button onClick={handleSubmit} variant="primary">
     Submit
