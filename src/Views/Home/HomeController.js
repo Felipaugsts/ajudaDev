@@ -7,6 +7,8 @@ import error from '../../Assets/images/error.gif'
 import TextField from '../../Components/TextField/TextField'
 import FilterInput from '../../Components/Filters/filter'
 
+import Pagination from '../../Components/Pagination'
+
 
 class HomeController extends Component {
     constructor() { 
@@ -15,7 +17,9 @@ class HomeController extends Component {
         this.state = { 
             jobs: [],
             searchfield: "",
-            filtered: []
+            filtered: [],
+            currentPage: 1,
+            postsPerPage: 5
         }
     }
     onSearchChange = (event) => { 
@@ -24,8 +28,7 @@ class HomeController extends Component {
         })
         }
         filterJobs() { 
-            const filtered = []
-            
+            const filtered = []   
             const filteredTitles = this.state.jobs.filter(jobs => {
                 if (jobs.title.toLowerCase().includes(this.state.searchfield.toLowerCase())) {
                     filtered.push(jobs)
@@ -45,7 +48,25 @@ class HomeController extends Component {
        this.fetchJobs()
     }
     
-    render() { 
+     render() { 
+        const filtered =  this.filterJobs()
+        console.log("page", this.state.currentPage, "post", this.state.postsPerPage)
+        const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
+        const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
+        console.log(filtered)
+        const currentPosts = filtered.slice(indexOfFirstPost, indexOfLastPost);
+      
+        // Change page
+        const paginate = pageNumber => {
+
+            
+            this.setState({
+                currentPage: pageNumber
+            })
+       
+        };
+  
+
         const categories = [ 
             {name: "Development", icon: "code"},
             {name: "Cloud", icon: "cloud"},
@@ -58,7 +79,7 @@ class HomeController extends Component {
             {name: "Outras, PT", icon: "world"},
             {name: "Remoto, PT", icon: "remote"}
         ]
-        const filtered = this.filterJobs()
+        
        if (this.state.jobs.length === 0) {
            console.log("loading")
            return ( 
@@ -72,11 +93,20 @@ class HomeController extends Component {
                 </div>
                 <div className='display-wrapper flex wrap justify-center'>
                         <div className='card-list'>
-                            {filtered.length === 0 ?
+                            {currentPosts.length === 0 ?
                             <img className='error-image' src={error} alt="loading" /> 
                                         :
-                        <HomeList jobs={filtered} />
+                        <HomeList jobs={currentPosts} />
                         }
+
+                    <div className='pagination'>
+                    <Pagination
+                            postsPerPage={this.state.postsPerPage}
+                            totalPosts={filtered.length}
+                            paginate={paginate}
+                        />
+                        
+                    </div>
                             
                         </div>
                     

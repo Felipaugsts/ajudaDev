@@ -78,3 +78,8 @@
   margin-top: 65px;
   height: 400px;
 }
+.pagination { 
+  
+display: flex;
+justify-content: center;
+}
