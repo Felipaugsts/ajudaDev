@@ -9,6 +9,8 @@
 - [x] Firebase Auth 
 - [x] Firestore 
 - [x] React Hooks
+- [x] Responsive UI 
+- [x] Global and local css 
 
 ## Images 
 
