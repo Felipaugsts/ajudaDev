@@ -1,6 +1,6 @@
-### Firebase and React 
+## Firebase and React 
 
-## What were used on this project
+### What were used on this project
 
 - [x] MVC 
 - [x] React 
@@ -12,7 +12,7 @@
 - [x] Responsive UI 
 - [x] Global and local css 
 
-## Images 
+### Images 
 
  Home Page
 
