@@ -1,9 +1,9 @@
-.newItem { 
-   display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90vh;
+.newItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
 }
-.loader { 
-    height:90px;
+.loader {
+  height: 90px;
 }

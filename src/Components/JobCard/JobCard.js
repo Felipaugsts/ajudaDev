@@ -31,7 +31,7 @@ const Jobcard = ({ job }) => {
 
         <div className="description-informations flex spaced">
           <div className="flex">
-            <div className="characteristic small">{job.Field}</div>
+            <div className="characteristic small">{job.field}</div>
             <div className="characteristic black small">
               {job.remote ? "REMOTE" : "PRESENTIAL"}
             </div>

@@ -29,6 +29,17 @@ function getJobId(ID) {
     });
 }
 
+function deleteJob(ID) {
+  return db
+    .collection("Jobs")
+    .doc(`/${ID}`)
+    .delete()
+    .then((res) => {
+      console.log(res);
+      return res;
+    });
+}
+
 const postCollection = async (job, params) => {
   const url = await getImage(job.Tech).then((url) => {
     return url;
@@ -79,4 +90,5 @@ export default {
   FetchJobs,
   postCollection,
   getJobId,
+  deleteJob,
 };

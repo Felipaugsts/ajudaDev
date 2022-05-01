@@ -53,7 +53,7 @@ const Login = () => {
   return (
     <div className="login-card ">
       <div>
-        <form>
+        <form className="shadow">
           <h3>Sign In</h3>
           <div className="form-group">
             <input
