@@ -79,27 +79,27 @@ const NewItem = () => {
     <div className="newItem">
       <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Title</Form.Label>
+          <Form.Label>Título</Form.Label>
           <Form.Control
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             type="text"
-            placeholder="Enter Title"
+            placeholder="Título"
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Location</Form.Label>
+          <Form.Label>Localização</Form.Label>
           <Form.Control
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             type="text"
-            placeholder="Enter Location"
+            placeholder="Localização"
           />
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Field</Form.Label>
+          <Form.Label>Area de atuação</Form.Label>
           <Form.Select
             value={field}
             onChange={(e) => setField(e.target.value)}
@@ -113,7 +113,7 @@ const NewItem = () => {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Technology</Form.Label>
+          <Form.Label>Tecnologia</Form.Label>
           <Form.Select
             value={Tech}
             onChange={(e) => setTech(e.target.value)}
@@ -138,7 +138,7 @@ const NewItem = () => {
             value={remote}
             onChange={(e) => setRemote(!remote)}
             type="checkbox"
-            label="Remote?"
+            label="Remoto?"
           />
         </Form.Group>
         <Button

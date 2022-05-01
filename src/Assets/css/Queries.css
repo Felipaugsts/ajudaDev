@@ -43,6 +43,9 @@
     font-size: 5vw !important;
     text-align: center !important;
   }
+  .input-field {
+    width: 500px !important;
+  }
 }
 
 @media only screen and (max-width: 650px) {
@@ -59,7 +62,7 @@
     align-items: center;
   }
   .input-field {
-    width: 200px !important;
+    width: 300px !important;
   }
   .text {
     font-size: 7vw !important;
@@ -79,5 +82,8 @@
   }
   .login-card {
     width: 100% !important;
+  }
+  .input-field {
+    width: 250px !important;
   }
 }

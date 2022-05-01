@@ -35,7 +35,6 @@ function deleteJob(ID) {
     .doc(`/${ID}`)
     .delete()
     .then((res) => {
-      console.log(res);
       return res;
     });
 }
@@ -72,13 +71,11 @@ const postCollection = async (job, params) => {
 
 const getImage = async (tech) => {
   const image = tech.toLowerCase();
-  console.log(image);
   const storage = getStorage();
   const starsRef = ref(storage, `Images/${image}.png`);
 
   return await getDownloadURL(starsRef)
     .then((url) => {
-      console.log(url);
       return url;
     })
     .catch((err) => {
