@@ -90,7 +90,7 @@ class HomeController extends Component {
       return (
         <div className="containers">
           <div className="text xlarge heavy ">
-            Encontre seu primeiro emprego <br />
+            Encontre seu emprego <br />
             <span className="hashtag heavier">#AjudaDev</span>
           </div>
           <div className="display-wrapper flex wrap justify-center">

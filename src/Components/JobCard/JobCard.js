@@ -1,14 +1,27 @@
 import "./card.css";
 import edit from "../../Assets/Icons/editable.gif";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Jobcard = ({ job }) => {
   const userUid = sessionStorage.getItem("uid");
+  const [expended, Expand] = useState(false);
+
+  const handleExpand = () => {
+    Expand(!expended);
+  };
 
   return (
-    <div className="card-wrapper flex wrapper">
+    <div
+      onClick={handleExpand}
+      className={
+        expended
+          ? "card-wrapper-expended flex wrapper"
+          : "card-wrapper flex wrapper"
+      }
+    >
       <div className="image-wrapper">
-        <div className="logo-wrapper wrapper">
+        <div className={expended ? "logo-wrapper" : "logo-wrapper wrapper"}>
           <img className="image" src={job.url} alt="logo"></img>
         </div>
       </div>
@@ -30,17 +43,31 @@ const Jobcard = ({ job }) => {
         </div>
 
         <div className="description-informations flex spaced">
-          <div className="flex">
+          <div className="flex centered">
             <div className="characteristic small">{job.field}</div>
             <div className="characteristic black small">
               {job.remote ? "REMOTE" : "PRESENTIAL"}
             </div>
+            <i
+              className={!expended ? "bi bi-caret-down" : "bi bi-caret-up"}
+            ></i>
           </div>
 
           <div className="medium date black">
             {job.created.toDate().toDateString()}
           </div>
         </div>
+
+        <p
+          className={
+            expended
+              ? "small black light description show"
+              : "small black light description hidden"
+          }
+        >
+          <span>Descrição: </span>
+          {job.description}
+        </p>
       </div>
     </div>
   );
