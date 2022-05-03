@@ -11,7 +11,11 @@ import { useParams } from "react-router-dom";
 const NewItem = () => {
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
+  const [country, setCountry] = useState("");
+  const [level, setLevel] = useState("");
   const [field, setField] = useState("");
+  const [description, setDescription] = useState("");
+  const [link, setLink] = useState("");
   const [remote, setRemote] = useState(false);
   const [Tech, setTech] = useState("");
   const userUID = useSelector(uid);
@@ -32,10 +36,13 @@ const NewItem = () => {
           remote: remote,
           Tech: Tech,
           created: new Date(),
+          link: link,
+          country: country,
+          level: level,
+          description: description,
         };
         API.postCollection(data, id)
           .then(() => {
-            console.log("success");
             setLoader(false);
             setSuccess(true);
           })
@@ -69,8 +76,10 @@ const NewItem = () => {
         setField(data.field);
         setRemote(data.remote);
         setTech(data.Tech);
-
-        console.log(title);
+        setCountry(data.country);
+        setLevel(data.level);
+        setLink(data.link);
+        setDescription(data.description);
       });
     }
   }, [id]);
@@ -88,14 +97,20 @@ const NewItem = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Localização</Form.Label>
-          <Form.Control
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            type="text"
-            placeholder="Localização"
-          />
+        <Form.Group className="mb-3">
+          <Form.Label>Area de atuação</Form.Label>
+          <Form.Select
+            value={level}
+            onChange={(e) => setLevel(e.target.value)}
+            size="sm"
+          >
+            <option></option>
+            <option>Especialista</option>
+            <option>Senior</option>
+            <option>Pleno</option>
+            <option>Junior</option>
+            <option>Estágio</option>
+          </Form.Select>
         </Form.Group>
 
         <Form.Group className="mb-3">
@@ -133,6 +148,47 @@ const NewItem = () => {
           </Form.Select>
         </Form.Group>
 
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Link da vaga</Form.Label>
+          <Form.Control
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+            type="text"
+            placeholder="https://linkedin.com/vagaID"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Descrição</Form.Label>
+          <Form.Control
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            as="textarea"
+            rows={3}
+            placeholder="max-length 200 characters"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Cidade</Form.Label>
+          <Form.Control
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            type="text"
+            placeholder="Cidade"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>País</Form.Label>
+          <Form.Control
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            type="text"
+            placeholder="BR"
+          />
+        </Form.Group>
+
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check
             value={remote}
@@ -141,6 +197,7 @@ const NewItem = () => {
             label="Remoto?"
           />
         </Form.Group>
+
         <Button
           onClick={handleSubmit}
           variant={`${loader ? "" : success ? "success" : "primary"}`}

@@ -5,13 +5,15 @@
   margin: 10px;
   margin-top: 30px;
   padding: 15px;
-  transition: all 0.1s ease !important;
+  transition: all 0.5s ease !important;
 }
 .wrapper {
-  transition: all 0.1s ease !important;
+  transition: all 0.4s ease !important;
 }
 .card-wrapper-expended {
-  height: 280px;
+  height: auto;
+  min-height: 250px;
+  padding-bottom: 15px;
   background: white;
   color: rgb(31, 30, 30);
   margin: 10px;
@@ -30,7 +32,7 @@
 }
 .logo-wrapper {
   width: 100%;
-  height: 100%;
+  height: 120px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -45,10 +47,11 @@
 }
 .description-title {
   transition: all 0.5s ease !important;
+  text-decoration: none;
 }
 .description-title:hover {
   cursor: pointer;
-  color: rgb(237, 112, 2);
+  color: rgb(237, 112, 2) !important;
 }
 .description-informations {
   width: 100%;
@@ -79,4 +82,8 @@
 }
 .shown {
   display: block;
+}
+
+.icons {
+  cursor: pointer;
 }

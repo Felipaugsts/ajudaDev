@@ -13,7 +13,6 @@ const Jobcard = ({ job }) => {
 
   return (
     <div
-      onClick={handleExpand}
       className={
         expended
           ? "card-wrapper-expended flex wrapper"
@@ -21,14 +20,14 @@ const Jobcard = ({ job }) => {
       }
     >
       <div className="image-wrapper">
-        <div className={expended ? "logo-wrapper" : "logo-wrapper wrapper"}>
+        <div className="logo-wrapper wrapper">
           <img className="image" src={job.url} alt="logo"></img>
         </div>
       </div>
       <div className="description-wrapper">
         <div className="header">
           <span className="link medium description-address black capitalize">
-            {job.location.toLowerCase()}
+            {job.location.toLowerCase()}, {job.country.toUpperCase()}
           </span>
           {userUid === job.uid ? (
             <Link to={`/list/${job.jobID}`}>
@@ -38,18 +37,28 @@ const Jobcard = ({ job }) => {
             ""
           )}
         </div>
-        <div className="large heavy description-title capitalize">
+        <a
+          href={job.link}
+          target="_blank"
+          className="large heavy description-title black capitalize"
+          rel="noreferrer"
+        >
           {job.title.toLowerCase()}
-        </div>
+        </a>
 
         <div className="description-informations flex spaced">
           <div className="flex centered">
-            <div className="characteristic small">{job.field}</div>
             <div className="characteristic black small">
               {job.remote ? "REMOTE" : "PRESENTIAL"}
             </div>
+            <div className="characteristic black small">
+              {job.level.toUpperCase()}
+            </div>
             <i
-              className={!expended ? "bi bi-caret-down" : "bi bi-caret-up"}
+              onClick={handleExpand}
+              className={
+                !expended ? "bi bi-caret-down icons" : "bi bi-caret-up icons"
+              }
             ></i>
           </div>
 
