@@ -71,6 +71,15 @@
     width: 130px !important;
     padding: 10px !important;
   }
+  .description-title {
+    font-size: 17px !important;
+  }
+  .image-wrapper {
+    padding: 5px !important;
+  }
+  .image {
+    width: 60px !important;
+  }
 }
 
 @media only screen and (max-width: 520px) {

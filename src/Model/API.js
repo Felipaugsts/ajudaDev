@@ -58,7 +58,11 @@ const postCollection = async (job, params) => {
       field: job.field,
       remote: job.remote,
       Tech: job.Tech,
+      link: job.link,
+      level: job.level,
+      country: job.country,
       created: new Date(),
+      description: job.description,
       url: url,
     })
     .then((res) => {
