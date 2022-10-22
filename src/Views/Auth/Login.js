@@ -1,54 +1,11 @@
 import "./login.css";
-
-import { Auth, Provider } from "../../Model/FirebaseSetup";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  setUserActive,
-  selectUserName,
-  setLoader,
-  loading,
-} from "../../Model/userSlice";
 import icon from "../../Assets/Icons/googleAuth.png";
 import loadingIcon from "../../Assets/Icons/lock.gif";
-import { useNavigate } from "react-router-dom";
+
+import LoginViewModel from "./LoginViewModel";
 
 const Login = () => {
-  const dispatch = useDispatch();
-  const userName = useSelector(selectUserName);
-  const loader = useSelector(loading);
-  let navigate = useNavigate();
-  // const userEmail = useSelector(selectUserEmail)
-
-  const handleSignIn = () => {
-    dispatch(
-      setLoader({
-        loading: true,
-      })
-    );
-    Auth.signInWithPopup(Provider)
-      .then((result) => {
-        dispatch(
-          setUserActive({
-            userEmail: result.user.email,
-            userName: result.user.displayName,
-          })
-        );
-        dispatch(
-          setLoader({
-            loading: false,
-          })
-        );
-        navigate("/", { replace: true });
-      })
-      .catch((err) => {
-        console.log("catched error", err);
-        dispatch(
-          setLoader({
-            loading: false,
-          })
-        );
-      });
-  };
+  const { handleSignIn, loader } = LoginViewModel();
 
   return (
     <div className="login-card ">
@@ -80,12 +37,17 @@ const Login = () => {
           <span className="small light signin-text">or sign in with</span>
 
           {loader ? (
-            <img className="auth-icon-loader" src={loadingIcon} />
+            <img
+              className="auth-icon-loader"
+              src={loadingIcon}
+              alt="auth-icon"
+            />
           ) : (
             <img
-              onClick={handleSignIn}
               className="auth-icon-google "
               src={icon}
+              alt="icon"
+              onClick={handleSignIn}
             />
           )}
         </form>

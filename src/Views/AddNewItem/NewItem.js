@@ -70,7 +70,6 @@ const NewItem = () => {
     }
     if (id) {
       API.getJobId(id).then((data) => {
-        console.log(data);
         setTitle(data.title);
         setLocation(data.location);
         setField(data.field);

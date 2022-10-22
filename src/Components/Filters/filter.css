@@ -1,23 +1,47 @@
-.form-wrapper { 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 15px;
-    padding-right: 20px;
-    padding-left: 20px;
-
+.form-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
-.form-check-input { 
-   
-    margin-top: 5px;
+.form-check-input {
+  margin-top: 5px;
 }
-.form { 
-    display: flex;
-
+.form {
+  display: flex;
 }
-.icon { 
-    height: 50px;
-    margin-right: 5px;
+.icon {
+  height: 50px;
+  margin-right: 5px;
 }
 
+/* Filters  */
 
+.card-filters {
+  width: 350px;
+  height: 100% !important;
+}
+
+.search-field-wrapper {
+  margin-top: 10px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.categorias-wrapper {
+  color: black;
+}
+
+.categorias-text {
+  padding-left: 30px;
+  padding-top: 35px;
+}
+
+.filter-city {
+  margin-top: 65px;
+  height: 400px;
+}
