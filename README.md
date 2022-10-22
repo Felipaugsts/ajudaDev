@@ -2,7 +2,7 @@
 
 ### What were used on this project
 
-- [x] MVC 
+- [x] MVVM 
 - [x] React 
 - [x] Firebase 
 - [x] Redux 
