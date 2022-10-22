@@ -1,12 +1,13 @@
 import { useState } from "react";
-import api from "../../Model/API.js";
+import { fetchJobs } from "../../Components/Repository/JobsRepository";
 
 export default function HomeController() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchfield, setSearchfield] = useState("");
-  const postsPerPage = 20;
+  const [error, setError] = useState();
+  const postsPerPage = 6;
 
   const categories = [
     { name: "Development", icon: "code" },
@@ -21,8 +22,11 @@ export default function HomeController() {
     { name: "Remoto, MN", icon: "remote" },
   ];
 
-  const fetchJobs = () => {
-    api.FetchJobs().then((job) => setJobs(job), setLoading(false));
+  const fetchAllJobs = async () => {
+    const { result, error } = await fetchJobs();
+    setJobs(result);
+    setError(error);
+    setLoading(false);
   };
 
   const filterJobs = () => {
@@ -58,7 +62,7 @@ export default function HomeController() {
     postsPerPage,
     filterJobs,
     paginate,
-    fetchJobs,
+    fetchAllJobs,
     currentPosts,
     categories,
     location,

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUserActive, setLoader, loading } from "../../Model/userSlice";
-import { Auth, Provider } from "../../Model/FirebaseSetup";
+import { Auth, Provider } from "../../Firebase/FirebaseSetup";
 
 export default function LoginViewModel() {
   const dispatch = useDispatch();

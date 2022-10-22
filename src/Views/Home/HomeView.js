@@ -12,7 +12,7 @@ export default function HomeController() {
     onSearchChange,
     filtered,
     postsPerPage,
-    fetchJobs,
+    fetchAllJobs,
     paginate,
     currentPosts,
     categories,
@@ -20,7 +20,7 @@ export default function HomeController() {
   } = viewModel();
 
   useEffect(() => {
-    fetchJobs();
+    fetchAllJobs();
   }, []);
 
   return jobs.length === 0 ? (

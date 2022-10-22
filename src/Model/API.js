@@ -1,32 +1,42 @@
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { db } from "../Firebase/FirebaseSetup";
 
-import { db } from "./FirebaseSetup";
-function FetchJobs() {
-  return db
-    .collection("Jobs")
-    .orderBy("created", "desc")
-    .get()
-    .then((data) => {
-      if (data.empty === false) {
-        const results = [];
-        data.docs.forEach((element) => {
-          results.push(element.data());
-        });
-        return results;
-      }
-    });
+export async function FetchJobs() {
+  try {
+    let jobs = [];
+    await db
+      .collection("Jobs")
+      .orderBy("created", "desc")
+      .get()
+      .then((response) => {
+        if (!response.empty) {
+          response.docs.forEach((element) => {
+            jobs.push(element.data());
+          });
+        }
+      });
+    return Promise.resolve({ error: null, result: jobs });
+  } catch (err) {
+    return Promise.resolve({ error: err.message, result: null });
+  }
 }
 
-function getJobId(ID) {
-  return db
-    .collection("Jobs")
-    .doc(`/${ID}`)
-    .get()
-    .then((res) => {
-      if (res.exists) {
-        return res.data();
-      }
-    });
+export async function getJobId(ID) {
+  try {
+    let job = null;
+    await db
+      .collection("Jobs")
+      .doc(`/${ID}`)
+      .get()
+      .then((res) => {
+        if (res.exists) {
+          job = res.data();
+        }
+      });
+    return Promise.resolve({ error: null, result: job });
+  } catch (err) {
+    return Promise.resolve({ error: err.message, result: null });
+  }
 }
 
 function deleteJob(ID) {
@@ -88,8 +98,6 @@ const getImage = async (tech) => {
 };
 
 export default {
-  FetchJobs,
   postCollection,
-  getJobId,
   deleteJob,
 };

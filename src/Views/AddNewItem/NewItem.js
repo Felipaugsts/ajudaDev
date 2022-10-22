@@ -7,6 +7,9 @@ import { uid } from "../../Model/userSlice";
 import API from "../../Model/API";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { getJobById } from "../../Components/Repository/JobsRepository";
+
+import { NewItemViewModel } from "./NewItemViewModel";
 
 const NewItem = () => {
   const [title, setTitle] = useState("");
@@ -20,40 +23,25 @@ const NewItem = () => {
   const [Tech, setTech] = useState("");
   const userUID = useSelector(uid);
   const { id } = useParams();
-  const [loader, setLoader] = useState(false);
-  const [success, setSuccess] = useState(false);
   let navigate = useNavigate();
 
+  const { loader, success, handlePostJob } = NewItemViewModel();
+
   const handleSubmit = () => {
-    if (title && location && field && Tech && userUID) {
-      if (userUID) {
-        setLoader(true);
-        let data = {
-          uid: userUID,
-          title: title,
-          location: location,
-          field: field,
-          remote: remote,
-          Tech: Tech,
-          created: new Date(),
-          link: link,
-          country: country,
-          level: level,
-          description: description,
-        };
-        API.postCollection(data, id)
-          .then(() => {
-            setLoader(false);
-            setSuccess(true);
-          })
-          .catch((err) => {
-            console.log(err);
-            setLoader(false);
-          });
-      }
-    } else {
-      alert("fields cannot be empty!");
-    }
+    let data = {
+      uid: userUID,
+      title: title,
+      location: location,
+      field: field,
+      remote: remote,
+      Tech: Tech,
+      created: new Date(),
+      link: link,
+      country: country,
+      level: level,
+      description: description,
+    };
+    handlePostJob(data);
   };
 
   const handleDelete = () => {
@@ -64,22 +52,29 @@ const NewItem = () => {
     }
   };
 
+  const fetchJobById = async (id) => {
+    const { error, result } = await getJobById(id);
+    if (result) {
+      setTitle(result.title);
+      setLocation(result.location);
+      setField(result.field);
+      setRemote(result.remote);
+      setTech(result.Tech);
+      setCountry(result.country);
+      setLevel(result.level);
+      setLink(result.link);
+      setDescription(result.description);
+    } else {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     if (!userUID) {
       navigate("/", { replace: true });
     }
     if (id) {
-      API.getJobId(id).then((data) => {
-        setTitle(data.title);
-        setLocation(data.location);
-        setField(data.field);
-        setRemote(data.remote);
-        setTech(data.Tech);
-        setCountry(data.country);
-        setLevel(data.level);
-        setLink(data.link);
-        setDescription(data.description);
-      });
+      fetchJobById(id);
     }
   }, [id]);
 
