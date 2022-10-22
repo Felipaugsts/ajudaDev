@@ -6,7 +6,7 @@ import { Auth, Provider } from "../../Model/FirebaseSetup";
 export default function LoginViewModel() {
   const dispatch = useDispatch();
   const loader = useSelector(loading);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSignIn = () => {
     dispatch(
