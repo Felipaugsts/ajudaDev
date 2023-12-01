@@ -3,7 +3,7 @@ import "./Nav.css";
 import auth from "../../Assets/images/auth.gif";
 import logout from "../../Assets/Icons/logout.gif";
 import { Link } from "react-router-dom";
-import { Auth } from "../../Firebase/FirebaseSetup";
+import { Auth } from "../../Firebase/FirebaseConfig";
 import { setUserActive, uid, setLogoutUser } from "../../Model/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import add from "../../Assets/Icons/add.gif";

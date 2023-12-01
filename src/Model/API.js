@@ -1,5 +1,5 @@
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { db } from "../Firebase/FirebaseSetup";
+import { db } from "../Firebase/FirebaseConfig";
 
 export async function FetchJobs() {
   try {
